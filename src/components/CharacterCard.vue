@@ -17,7 +17,7 @@
     </div>
         <div><h3>Разновидность: {{ character.species }}</h3></div>
         <div>
-          <p>Эпизоды:<br/>
+          <p> Эпизоды:<br/>
             <a class="episodes"
             v-for="episodeUrl in character.episode.slice(0, 5)" 
             :key="episodeUrl"
@@ -26,6 +26,7 @@
             </a>
           </p>
         </div>
+        <router-link to="/episodes" class="go__episode">Ссылка на Эпизод</router-link>
       </div>
     </div>
 </template>
@@ -103,5 +104,15 @@ computed: {
     color: white;
     text-decoration: none;
     font-size: 23px;
+}
+.link-info:hover{
+  border-bottom: 2px solid teal;
+  font-size: 28px;
+  transition: 0.5s;
+}
+.go__episode{
+  text-decoration: none;
+  color: teal;
+  font-size: 20px;
 }
 </style>

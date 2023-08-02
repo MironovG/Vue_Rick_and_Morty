@@ -1,5 +1,6 @@
 import Main from '@/views/Main';
 import CharacterInfo from '@/views/CharacterInfo';
+import Episodes from '@/views/Episodes';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
@@ -12,6 +13,11 @@ const routes = [
     name: 'CharacterInfo',
     component: CharacterInfo,
   },
+  {
+    path: '/episodes',
+    name: 'Episodes',
+    component: Episodes,
+  }
 ];
 
 const router = createRouter({

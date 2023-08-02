@@ -31,6 +31,7 @@
 </template>
 
 <script>
+
 export default {
     name:'Card',
 props:{
@@ -51,6 +52,7 @@ props:{
       required: true
     }
 },
+
 computed: {
   filteredCharacters() {
     return this.characters.filter(character => {

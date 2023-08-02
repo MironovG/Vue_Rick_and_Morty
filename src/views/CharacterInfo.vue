@@ -1,36 +1,41 @@
 <template>
-    <div class="characters">
-      <div class="container">
-        <div class="character__image">
-          <img src=" " alt="photo">
-        </div>
-        <div><h2>Имя: {{ }}</h2></div>
-        <div><h3>Разновидность: {{ }}</h3></div>
-        <div><p>Пол: {{ }}</p></div>
-        <div><p>Статус: {{ }}</p></div>
+  <div class="characters">
+    <div 
+    v-for="item in select"
+    :key="item.id"
+    class="container">
+       <div class="character__image">
+        <img :src="item.image" alt="photo">
       </div>
+      <div><h2>Имя: {{ item.name }}</h2></div>
+      <div><h3>Разновидность: {{ item.species }}</h3></div>
+      <div><p>Пол: {{ item.gender }}</p></div>
+      <div><p>Статус: {{ item.status }}</p></div>
+      <div><p>Локация: {{ item.location.name }}</p></div>
     </div>
-  </template>
+  </div>
+</template>
+
+<script>
+import { Store } from '@/store/characterStore.js';
+export default {
+  name: 'CharacterInfo',
   
-  <script>
-  
-  export default {
-  name:'CharacterInfo',
-  props:{
-    character: {
-      type: Object,
-      required: true
-    },
-  },
   computed: {
-      characterId() {
-        console.log(this.$route.params.id);
-        return this.$route.params.id;
-      }
+    characters() {
+      return Store().characters;
+    },
+    select(){
+   return Store().characters.filter(char => char.id == this.$route.params.id);
     }
-  };
-  </script>
+  },
+
+  created() {
+   Store().getInfoAboutCharacters();
+  },
   
-  <style>
-  
-  </style>
+};
+</script>
+<style>
+
+</style>

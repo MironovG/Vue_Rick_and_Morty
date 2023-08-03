@@ -57,8 +57,8 @@
     margin-bottom: 20px;
     padding: 10px;
     text-align: center;
-    width: 420px;
-    height: 700px;
+    width: 400px;
+    height: 300px;
   }
   .episode__image {
     max-width: 50px;
